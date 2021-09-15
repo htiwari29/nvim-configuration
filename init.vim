@@ -32,10 +32,8 @@ set incsearch
 set scrolloff=15
 set cmdheight=2
 
-set colorcolumn=100
+set colorcolumn=95
 highlight Normal guibg=none
-
-let mapleader = " "
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'gruvbox-community/gruvbox'
@@ -45,11 +43,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
-if executable('rg')
-    let g:rg_derive_root='true'
-endif
-
 colorscheme gruvbox
+
+let mapleader = " "
 
 inoremap jj <ESC>
 nnoremap <leader>h :wincmd h<CR>
@@ -64,8 +60,14 @@ nnoremap <leader>gD :GoDef<Enter>
 nnoremap <silent><leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent><leader>gf :YcmCompleter FixIt<CR>
 
-autocmd BufNewFile *.py 0r ~/.config/nvim/templates/skeleton.py
+nnoremap <leader>o :!autopep8 --in-place --aggressive --aggressive %:p<Enter>
+
 autocmd BufNewFile *.cpp 0r ~/.config/nvim/templates/basic.cpp
+
+
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
 
 let g:ycm_python_interpreter_path = '/usr/local/bin/python3.9'
 let g:ycm_python_sys_path = []
