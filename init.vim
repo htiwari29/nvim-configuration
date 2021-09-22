@@ -36,7 +36,7 @@ set incsearch
 set scrolloff=15
 set cmdheight=2
 
-set colorcolumn=95
+set colorcolumn=120
 highlight Normal guibg=none
 
 call plug#begin('~/.config/nvim/autoload/plugged')
@@ -117,12 +117,20 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>ps :Buffers<CR>
 nnoremap <leader>e :GFiles<CR>
 
-nnoremap <leader>o :!autopep8 --in-place --aggressive --aggressive %:p<Enter>
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
+vnoremap <S-Up> :m '<-2<CR>gv=gv
+vnoremap <S-Down> :m '>+1<CR>gv=gv
 
+nnoremap <leader>o :!autopep8 --in-place --aggressive --aggressive %:p<Enter>
 autocmd BufNewFile *.cpp 0r ~/.config/nvim/templates/basic.cpp
+
 
 
