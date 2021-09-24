@@ -28,7 +28,7 @@ set nowrap
 
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir
+set undodir=~/.config/nvim/undodir 
 set undofile
 
 set signcolumn=yes
@@ -45,6 +45,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'mbbill/undotree'
 call plug#end()
 
 colorscheme gruvbox
@@ -118,6 +119,7 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
+nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>ps :Buffers<CR>
 nnoremap <leader>e :GFiles<CR>
