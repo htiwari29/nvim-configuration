@@ -132,7 +132,3 @@ vnoremap <S-Up> :m '<-2<CR>gv=gv
 vnoremap <S-Down> :m '>+1<CR>gv=gv
 
 nnoremap <leader>o :!autopep8 --in-place --aggressive --aggressive %:p<Enter>
-
-
-autocmd BufNewFile *.cpp execute "0r ~/.config/nvim/templates/".input("Template name: ").".cpp"
-
